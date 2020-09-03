@@ -1,0 +1,245 @@
+<!DOCTYPE html><html class=split lang=en-US-x-hixie><script src=/link-fixup.js defer=""></script><meta charset=utf-8><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport><title>HTML Standard, Developer's Edition</title><meta content=#3c790a name=theme-color><link href=https://resources.whatwg.org/logo.svg rel=icon><script>
+   function toggleStatus(div) {
+     div.parentNode.classList.toggle('wrapped');
+   }
+  </script><style>
+   .status { min-height: 0.6em; font: 1em sans-serif; width: 9em; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; margin: -2em 0 0 0; border-collapse: initial; border-spacing: initial; }
+   .status:hover { z-index: 9; }
+   .status:focus-within { z-index: 9; }
+   .status.wrapped > :not(input) { display: none; }
+   .status > input { position: absolute; left: 0; top: 0; width: 1em; height: 1em; border: none; background: transparent; padding: 0; margin: 0; }
+   .status > p { font-size: 0.6em; margin: 0; padding: 0; }
+   .status > p + p { padding-top: 0.5em; }
+   .status > p > strong { margin-left: 1.5em; }
+   .status > .support { display: block; }
+   .status > .support > span { padding: 0.2em 0; display: block; display: table; }
+   .status > .support > span.partial { color: #666666; filter: grayscale(50%); }
+   .status > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+   .status > .support > span.no::before { opacity: 0.5; }
+   .status > .support > span:first-of-type { padding-top: 0.5em; }
+   .status > .support > span > span { padding: 0 0.5em; display: table-cell; vertical-align: top; }
+   .status > .support > span > span:first-child { width: 100%; }
+   .status > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+   .status > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+   .status > .support > .and_chr::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .and_ff::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .and_uc::before { background-image: url(https://resources.whatwg.org/browser-logos/uc.png); } /* UC Browser for Android */
+   .status > .support > .android::before { background-image: url(https://resources.whatwg.org/browser-logos/android.svg); }
+   .status > .support > .bb::before { background-image: url(https://resources.whatwg.org/browser-logos/bb.jpg); } /* Blackberry Browser */
+   .status > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+   .status > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+   .status > .support > .ie_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/ie-mobile.svg); }
+   .status > .support > .ios_saf::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+   .status > .support > .op_mini::before { background-image: url(https://resources.whatwg.org/browser-logos/opera-mini.png); }
+   .status > .support > .op_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+   .status > .support > .samsung::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.png); }
+   .status > .caniuse { text-align: right; font-style: italic; width: 100%; }
+   .status > .caniuse + p { margin-top: 0.5em; border-top: 1px solid silver; }
+
+   @media (max-width: 767px) {
+     .status { right: -9em; }
+   }
+  </style><link rel=stylesheet href=styles.css><body>
+  <script async="" src=search.js></script>
+  
+  
+  <header id=head class="head with-buttons">
+   <a href=https://whatwg.org/ class=logo><img alt=WHATWG src=https://resources.whatwg.org/logo.svg width=100 height=100></a>
+   
+   <hgroup><h1><a rel=home href=/dev/>HTML: The Living Standard</a></h1><h2 id="developer's-edition-—-last-updated-date:-01-jan-1901" class="no-num no-toc">Developer's Edition — Last Updated <span class=pubdate>3 September 2020</span></h2><div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.zh.html></div></hgroup>
+   
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-91053840-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </header>
+
+  
+
+  
+
+  
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/table-of-contents.zh.html></div>
+  
+
+  
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/full-table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/full-table-of-contents.zh.html></div>
+  
+
+  
+
+  
+
+  <h2 id=about-dev-edition class="no-num no-toc">关于本标准</h2>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/about-this-specification.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/about-this-specification.zh.html></div>
+
+  <p>本标准与其他标准不同，它的处理完全考虑到了 Web 开发者。</p>
+
+  <p>本标准关注可读性和可访问性，不像 <a href=/multipage/>完整的 HTML 标准</a>，"开发者版本" 移除了
+  只有浏览器厂商需要知道的信息。它个版本是用我们的构建工具从完整的规范自动产出的，
+  因此总会与最新开发的 HTML 保持同步。</p>
+
+  <p>其概念、构造，以及未来可参考 <a href=http://web.archive.org/web/20150220020906/http://archive.germanforblack.com:80/articles/html5-for-web-developers>
+  原始出版发行</a>，以及 <a href=https://blog.whatwg.org/developers-edition-comeback>关于重启该版本的博文</a>。</p>
+
+  <p>最后，欢迎 <a href=https://github.com/whatwg/html/labels/dev%20edition>在 GitHub 贡献</a> 来改进该版本！</p>
+
+  
+
+  <nav><a href=history.html>← 7.5 Session history and navigation</a> — <a href=./>Table of Contents</a> — <a href=offline.html>7.7 Offline Web applications →</a></nav><ol class=toc><li><ol><li><a href=browsing-the-web.html#browsing-the-web><span class=secno>7.6</span> Browsing the Web</a><ol><li><a href=browsing-the-web.html#history-traversal><span class=secno>7.6.1</span> History traversal</a><ol><li><a href=browsing-the-web.html#persisted-user-state-restoration><span class=secno>7.6.1.1</span> Persisted user state restoration</a><li><a href=browsing-the-web.html#the-popstateevent-interface><span class=secno>7.6.1.2</span> The <code>PopStateEvent</code> interface</a><li><a href=browsing-the-web.html#the-hashchangeevent-interface><span class=secno>7.6.1.3</span> The <code>HashChangeEvent</code> interface</a><li><a href=browsing-the-web.html#the-pagetransitionevent-interface><span class=secno>7.6.1.4</span> The <code>PageTransitionEvent</code> interface</a></ol><li><a href=browsing-the-web.html#unloading-documents><span class=secno>7.6.2</span> Unloading documents</a><ol><li><a href=browsing-the-web.html#the-beforeunloadevent-interface><span class=secno>7.6.2.1</span> The <code>BeforeUnloadEvent</code> interface</a></ol></ol></ol></ol><h3 id=browsing-the-web><span class=secno>7.6</span> Browsing the Web<a href=#browsing-the-web class=self-link></a></h3>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+
+
+  <h4 id=history-traversal><span class=secno>7.6.1</span> History traversal<a href=#history-traversal class=self-link></a></h4>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/history-traversal/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/history-traversal/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Fhistory-traversal%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div> 
+
+  
+
+  <h5 id=persisted-user-state-restoration><span class=secno>7.6.1.1</span> Persisted user state restoration<a href=#persisted-user-state-restoration class=self-link></a></h5>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/history-traversal/persisted-user-state-restoration.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/history-traversal/persisted-user-state-restoration.zh.html?filename=persisted-user-state-restoration.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Fhistory-traversal%2Fpersisted-user-state-restoration.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+  
+
+  
+  <p class=note>This can even include updating the <code id=persisted-user-state-restoration:dir-属性><a href=dom.html#dir-属性>dir</a></code> attribute
+  of <code id=persisted-user-state-restoration:the-textarea-element><a href=form-elements.html#the-textarea-element>textarea</a></code> elements or <code id=persisted-user-state-restoration:the-input-element><a href=input.html#the-input-element>input</a></code> elements whose <code id=persisted-user-state-restoration:attr-input-type><a href=input.html#attr-input-type>type</a></code> attribute is in either the <a href="input.html#text-(type=text)-state-and-search-state-(type=search)" id="persisted-user-state-restoration:text-(type=text)-state-and-search-state-(type=search)">Text</a> state or the <a href="input.html#text-(type=text)-state-and-search-state-(type=search)" id="persisted-user-state-restoration:text-(type=text)-state-and-search-state-(type=search)-2">Search</a> state, if the persisted state includes the
+  directionality of user input in such controls.</p>
+
+  <p class=note>Not restoring the scroll position by user agent does not imply that the scroll
+  position will be left at any particular value (e.g., (0,0)). The actual scroll position depends on
+  the navigation type and the user agent's particular caching strategy. So web applications cannot
+  assume any particular scroll position but rather are urged to set it to what they want it to
+  be.</p>
+
+  <h5 id=the-popstateevent-interface><span class=secno>7.6.1.2</span> The <code id=the-popstateevent-interface:popstateevent><a href=#popstateevent>PopStateEvent</a></code> interface<a href=#the-popstateevent-interface class=self-link></a></h5>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/history-traversal/the-popstateevent-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/history-traversal/the-popstateevent-interface.zh.html?filename=the-popstateevent-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Fhistory-traversal%2Fthe-popstateevent-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/PopStateEvent title="PopStateEvent is an event handler for the popstate event on the window.">PopStateEvent</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>4+</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie unknown"><span>Internet Explorer</span><span>?</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>4+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div><pre><code class=idl>[Exposed=Window,
+ Constructor(DOMString type, optional <a href=#popstateeventinit id=the-popstateevent-interface:popstateeventinit>PopStateEventInit</a> eventInitDict)]
+interface <dfn id=popstateevent>PopStateEvent</dfn> : <a id=the-popstateevent-interface:event href=https://dom.spec.whatwg.org/#interface-event data-x-internal=event>Event</a> {
+  readonly attribute any <a href=#dom-popstateevent-state id=the-popstateevent-interface:dom-popstateevent-state>state</a>;
+};
+
+dictionary <dfn id=popstateeventinit>PopStateEventInit</dfn> : <a id=the-popstateevent-interface:eventinit href=https://dom.spec.whatwg.org/#dictdef-eventinit data-x-internal=eventinit>EventInit</a> {
+  any state = null;
+};</code></pre>
+
+  <dl class=domintro><dt><var>event</var> . <code id=dom-popstateevent-state>state</code><dd>
+
+    <p>Returns a copy of the information that was provided to <code id=the-popstateevent-interface:dom-history-pushstate><a href=history.html#dom-history-pushstate>pushState()</a></code> or <code id=the-popstateevent-interface:dom-history-replacestate><a href=history.html#dom-history-replacestate>replaceState()</a></code>.</p>
+
+   </dl>
+
+  
+
+
+  <h5 id=the-hashchangeevent-interface><span class=secno>7.6.1.3</span> The <code id=the-hashchangeevent-interface:hashchangeevent><a href=#hashchangeevent>HashChangeEvent</a></code> interface<a href=#the-hashchangeevent-interface class=self-link></a></h5><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent title="The HashChangeEvent interface represents events that fire when the fragment identifier of the URL has changed.">HashChangeEvent</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.6+</span></span><span class="safari yes"><span>Safari</span><span>5+</span></span><span class="chrome yes"><span>Chrome</span><span>5+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.6+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>4+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>5+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span><hr><span class=caniuse><span><a href="https://caniuse.com/#feat=hashchange" title="Hashchange event">caniuse.com table</a></span></span></div></div></div>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/history-traversal/the-hashchangeevent-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/history-traversal/the-hashchangeevent-interface.zh.html?filename=the-hashchangeevent-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Fhistory-traversal%2Fthe-hashchangeevent-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <pre><code class=idl>[Exposed=Window,
+ Constructor(DOMString type, optional <a href=#hashchangeeventinit id=the-hashchangeevent-interface:hashchangeeventinit>HashChangeEventInit</a> eventInitDict)]
+interface <dfn id=hashchangeevent>HashChangeEvent</dfn> : <a id=the-hashchangeevent-interface:event href=https://dom.spec.whatwg.org/#interface-event data-x-internal=event>Event</a> {
+  readonly attribute USVString <a href=#dom-hashchangeevent-oldurl id=the-hashchangeevent-interface:dom-hashchangeevent-oldurl>oldURL</a>;
+  readonly attribute USVString <a href=#dom-hashchangeevent-newurl id=the-hashchangeevent-interface:dom-hashchangeevent-newurl>newURL</a>;
+};
+
+dictionary <dfn id=hashchangeeventinit>HashChangeEventInit</dfn> : <a id=the-hashchangeevent-interface:eventinit href=https://dom.spec.whatwg.org/#dictdef-eventinit data-x-internal=eventinit>EventInit</a> {
+  USVString oldURL = "";
+  USVString newURL = "";
+};</code></pre>
+
+  <dl class=domintro><dt><var>event</var> . <code id=dom-hashchangeevent-oldurl>oldURL</code><div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent/oldURL title="The oldURL read-only property of the HashChangeEvent interface returns the previous URL from which the window was navigated.">HashChangeEvent/oldURL</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>6+</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>Yes</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>Yes</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie no"><span>Internet Explorer</span><span>No</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>Yes</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div><dd>
+
+    <p>Returns the <a id=the-hashchangeevent-interface:url href=https://url.spec.whatwg.org/#concept-url data-x-internal=url>URL</a> of the <a id=the-hashchangeevent-interface:session-history-entry href=history.html#session-history-entry>session history entry</a> that was previously
+    current.</p>
+
+   <dt><var>event</var> . <code id=dom-hashchangeevent-newurl>newURL</code><div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/HashChangeEvent/newURL title="The newURL read-only property of the HashChangeEvent interface returns the new URL to which the window is navigating.">HashChangeEvent/newURL</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>6+</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>Yes</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>Yes</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie no"><span>Internet Explorer</span><span>No</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>Yes</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div><dd>
+
+    <p>Returns the <a id=the-hashchangeevent-interface:url-2 href=https://url.spec.whatwg.org/#concept-url data-x-internal=url>URL</a> of the <a id=the-hashchangeevent-interface:session-history-entry-2 href=history.html#session-history-entry>session history entry</a> that is now
+    current.</p>
+
+   </dl>
+
+  
+
+
+  <h5 id=the-pagetransitionevent-interface><span class=secno>7.6.1.4</span> The <code id=the-pagetransitionevent-interface:pagetransitionevent><a href=#pagetransitionevent>PageTransitionEvent</a></code> interface<a href=#the-pagetransitionevent-interface class=self-link></a></h5><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent title="The PageTransitionEvent event object is available inside handler functions for the pageshow and pagehide events, fired when a document is being loaded or unloaded.">PageTransitionEvent</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>Yes</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>Yes</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>Yes</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>Yes</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>Yes</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/history-traversal/the-pagetransitionevent-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/history-traversal/the-pagetransitionevent-interface.zh.html?filename=the-pagetransitionevent-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Fhistory-traversal%2Fthe-pagetransitionevent-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <pre><code class=idl>[Exposed=Window,
+ Constructor(DOMString type, optional <a href=#pagetransitioneventinit id=the-pagetransitionevent-interface:pagetransitioneventinit>PageTransitionEventInit</a> eventInitDict)]
+interface <dfn id=pagetransitionevent>PageTransitionEvent</dfn> : <a id=the-pagetransitionevent-interface:event href=https://dom.spec.whatwg.org/#interface-event data-x-internal=event>Event</a> {
+  readonly attribute boolean <a href=#dom-pagetransitionevent-persisted id=the-pagetransitionevent-interface:dom-pagetransitionevent-persisted>persisted</a>;
+};
+
+dictionary <dfn id=pagetransitioneventinit>PageTransitionEventInit</dfn> : <a id=the-pagetransitionevent-interface:eventinit href=https://dom.spec.whatwg.org/#dictdef-eventinit data-x-internal=eventinit>EventInit</a> {
+  boolean persisted = false;
+};</code></pre>
+
+  <dl class=domintro><dt><var>event</var> . <code id=dom-pagetransitionevent-persisted>persisted</code><div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent/persisted title="The persisted read-only property indicates if a webpage is loading from a cache.">PageTransitionEvent/persisted</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>Yes</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>Yes</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>Yes</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>11</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>Yes</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div><dd>
+
+    <p>For the <code id=the-pagetransitionevent-interface:event-pageshow><a href=indices.html#event-pageshow>pageshow</a></code> event, returns false if the page is
+    newly being loaded (and the <code id=the-pagetransitionevent-interface:event-load><a href=indices.html#event-load>load</a></code> event will fire). Otherwise,
+    returns true.</p>
+
+    <p>For the <code id=the-pagetransitionevent-interface:event-pagehide><a href=indices.html#event-pagehide>pagehide</a></code> event, returns false if the page is
+    going away for the last time. Otherwise, returns true, meaning that (if nothing conspires to
+    make the page unsalvageable) the page might be reused if the user navigates back to this
+    page.</p>
+
+    <p>Things that can cause the page to be unsalvageable include:</p>
+
+    <ul class=brief><li><code id=the-pagetransitionevent-interface:dom-document-open><a href=dynamic-markup-insertion.html#dom-document-open>document.open(<var>type</var>, <var>replace</var>)</a></code>
+     <li>Listening for <code id=the-pagetransitionevent-interface:event-beforeunload><a href=indices.html#event-beforeunload>beforeunload</a></code> events
+     <li>Listening for <code id=the-pagetransitionevent-interface:event-unload><a href=indices.html#event-unload>unload</a></code> events
+     <li>Having <code id=the-pagetransitionevent-interface:the-iframe-element><a href=iframe-embed-object.html#the-iframe-element>iframe</a></code>s that are not salvageable
+     <li>Active <code id=the-pagetransitionevent-interface:websocket><a href=web-sockets.html#websocket>WebSocket</a></code> objects
+     <li><span>Aborting a <code id=the-pagetransitionevent-interface:document><a href=dom.html#document>Document</a></code></span>
+    </ul>
+
+   </dl>
+
+  
+
+
+
+  <h4 id=unloading-documents><span class=secno>7.6.2</span> Unloading documents<a href=#unloading-documents class=self-link></a></h4>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/unloading-documents/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/unloading-documents/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Funloading-documents%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+
+
+  <h5 id=the-beforeunloadevent-interface><span class=secno>7.6.2.1</span> The <code id=the-beforeunloadevent-interface:beforeunloadevent><a href=#beforeunloadevent>BeforeUnloadEvent</a></code> interface<a href=#the-beforeunloadevent-interface class=self-link></a></h5><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent title="The beforeunload event is fired when the window, the document and its resources are about to be unloaded.">BeforeUnloadEvent</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>1.5+</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>Yes</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>Yes</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>Yes</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>4+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/loading-web-pages/browsing-the-web/unloading-documents/the-beforeunloadevent-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/loading-web-pages/browsing-the-web/unloading-documents/the-beforeunloadevent-interface.zh.html?filename=the-beforeunloadevent-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Floading-web-pages%2Fbrowsing-the-web%2Funloading-documents%2Fthe-beforeunloadevent-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <pre><code class=idl>[Exposed=Window]
+interface <dfn id=beforeunloadevent>BeforeUnloadEvent</dfn> : <a id=the-beforeunloadevent-interface:event href=https://dom.spec.whatwg.org/#interface-event data-x-internal=event>Event</a> {
+  attribute DOMString <span>returnValue</span>;
+};</code></pre>
+
+  <p class=note>There are no <code id=the-beforeunloadevent-interface:beforeunloadevent-2><a href=#beforeunloadevent>BeforeUnloadEvent</a></code>-specific initialization methods.</p>
+
+  <p>The <code id=the-beforeunloadevent-interface:beforeunloadevent-3><a href=#beforeunloadevent>BeforeUnloadEvent</a></code> interface is a legacy interface which allows <span>prompting to unload</span> to be controlled not only by canceling the
+  event, but by setting the <code>returnValue</code>
+  attribute to a value besides the empty string. Authors should use the <code id=the-beforeunloadevent-interface:dom-event-preventdefault><a data-x-internal=dom-event-preventdefault href=https://dom.spec.whatwg.org/#dom-event-preventdefault>preventDefault()</a></code> method, or other means of canceling
+  events, instead of using <code>returnValue</code>.</p>
+
+  
+
+
+  
+
+
+  <nav><a href=history.html>← 7.5 Session history and navigation</a> — <a href=./>Table of Contents</a> — <a href=offline.html>7.7 Offline Web applications →</a></nav>

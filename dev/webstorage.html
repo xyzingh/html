@@ -1,0 +1,510 @@
+<!DOCTYPE html><html class=split lang=en-US-x-hixie><script src=/link-fixup.js defer=""></script><meta charset=utf-8><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport><title>HTML Standard, Developer's Edition</title><meta content=#3c790a name=theme-color><link href=https://resources.whatwg.org/logo.svg rel=icon><script>
+   function toggleStatus(div) {
+     div.parentNode.classList.toggle('wrapped');
+   }
+  </script><style>
+   .status { min-height: 0.6em; font: 1em sans-serif; width: 9em; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; margin: -2em 0 0 0; border-collapse: initial; border-spacing: initial; }
+   .status:hover { z-index: 9; }
+   .status:focus-within { z-index: 9; }
+   .status.wrapped > :not(input) { display: none; }
+   .status > input { position: absolute; left: 0; top: 0; width: 1em; height: 1em; border: none; background: transparent; padding: 0; margin: 0; }
+   .status > p { font-size: 0.6em; margin: 0; padding: 0; }
+   .status > p + p { padding-top: 0.5em; }
+   .status > p > strong { margin-left: 1.5em; }
+   .status > .support { display: block; }
+   .status > .support > span { padding: 0.2em 0; display: block; display: table; }
+   .status > .support > span.partial { color: #666666; filter: grayscale(50%); }
+   .status > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+   .status > .support > span.no::before { opacity: 0.5; }
+   .status > .support > span:first-of-type { padding-top: 0.5em; }
+   .status > .support > span > span { padding: 0 0.5em; display: table-cell; vertical-align: top; }
+   .status > .support > span > span:first-child { width: 100%; }
+   .status > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+   .status > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+   .status > .support > .and_chr::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .and_ff::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .and_uc::before { background-image: url(https://resources.whatwg.org/browser-logos/uc.png); } /* UC Browser for Android */
+   .status > .support > .android::before { background-image: url(https://resources.whatwg.org/browser-logos/android.svg); }
+   .status > .support > .bb::before { background-image: url(https://resources.whatwg.org/browser-logos/bb.jpg); } /* Blackberry Browser */
+   .status > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+   .status > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+   .status > .support > .ie_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/ie-mobile.svg); }
+   .status > .support > .ios_saf::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+   .status > .support > .op_mini::before { background-image: url(https://resources.whatwg.org/browser-logos/opera-mini.png); }
+   .status > .support > .op_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+   .status > .support > .samsung::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.png); }
+   .status > .caniuse { text-align: right; font-style: italic; width: 100%; }
+   .status > .caniuse + p { margin-top: 0.5em; border-top: 1px solid silver; }
+
+   @media (max-width: 767px) {
+     .status { right: -9em; }
+   }
+  </style><link rel=stylesheet href=styles.css><body>
+  <script async="" src=search.js></script>
+  
+  
+  <header id=head class="head with-buttons">
+   <a href=https://whatwg.org/ class=logo><img alt=WHATWG src=https://resources.whatwg.org/logo.svg width=100 height=100></a>
+   
+   <hgroup><h1><a rel=home href=/dev/>HTML: The Living Standard</a></h1><h2 id="developer's-edition-—-last-updated-date:-01-jan-1901" class="no-num no-toc">Developer's Edition — Last Updated <span class=pubdate>3 September 2020</span></h2><div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.zh.html></div></hgroup>
+   
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-91053840-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </header>
+
+  
+
+  
+
+  
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/table-of-contents.zh.html></div>
+  
+
+  
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/full-table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/full-table-of-contents.zh.html></div>
+  
+
+  
+
+  
+
+  <h2 id=about-dev-edition class="no-num no-toc">关于本标准</h2>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/about-this-specification.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/about-this-specification.zh.html></div>
+
+  <p>本标准与其他标准不同，它的处理完全考虑到了 Web 开发者。</p>
+
+  <p>本标准关注可读性和可访问性，不像 <a href=/multipage/>完整的 HTML 标准</a>，"开发者版本" 移除了
+  只有浏览器厂商需要知道的信息。它个版本是用我们的构建工具从完整的规范自动产出的，
+  因此总会与最新开发的 HTML 保持同步。</p>
+
+  <p>其概念、构造，以及未来可参考 <a href=http://web.archive.org/web/20150220020906/http://archive.germanforblack.com:80/articles/html5-for-web-developers>
+  原始出版发行</a>，以及 <a href=https://blog.whatwg.org/developers-edition-comeback>关于重启该版本的博文</a>。</p>
+
+  <p>最后，欢迎 <a href=https://github.com/whatwg/html/labels/dev%20edition>在 GitHub 贡献</a> 来改进该版本！</p>
+
+  
+
+  <nav><a href=workers.html>← 10 Web workers</a> — <a href=./>Table of Contents</a> — <a href=syntax.html>12 HTML 语法 →</a></nav><ol class=toc><li><a href=webstorage.html#webstorage><span class=secno>11</span> Web 存储</a><ol><li><a href=webstorage.html#introduction-6><span class=secno>11.1</span> Introduction</a><li><a href=webstorage.html#storage><span class=secno>11.2</span> API</a><ol><li><a href=webstorage.html#the-storage-interface><span class=secno>11.2.1</span> The <code>Storage</code> interface</a><li><a href=webstorage.html#the-sessionstorage-attribute><span class=secno>11.2.2</span> The <code>sessionStorage</code> attribute</a><li><a href=webstorage.html#the-localstorage-attribute><span class=secno>11.2.3</span> The <code>localStorage</code> attribute</a><li><a href=webstorage.html#the-storage-event><span class=secno>11.2.4</span> The <code>storage</code> event</a><ol><li><a href=webstorage.html#the-storageevent-interface><span class=secno>11.2.4.1</span> The <code>StorageEvent</code> interface</a></ol></ol><li><a href=webstorage.html#磁盘空间><span class=secno>11.3</span> 磁盘空间</a><li><a href=webstorage.html#隐私><span class=secno>11.4</span> 隐私</a><ol><li><a href=webstorage.html#user-tracking><span class=secno>11.4.1</span> User tracking</a></ol><li><a href=webstorage.html#security-storage><span class=secno>11.5</span> 安全</a><ol><li><a href=webstorage.html#dns-欺骗攻击><span class=secno>11.5.1</span> DNS 欺骗攻击</a><li><a href=webstorage.html#cross-directory-attacks><span class=secno>11.5.2</span> Cross-directory attacks</a></ol></ol></ol><h2 id=webstorage><span class=secno>11</span> Web 存储<a href=#webstorage class=self-link></a></h2><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API title="The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.">Web_Storage_API</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API title="The Web Storage API provides mechanisms by which browsers can securely store key/value pairs.">Web_Storage_API/Using_the_Web_Storage_API</a></div></div>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Wed Feb 28 2018 16:23:38 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/index.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/index.zh.html></div>
+
+  <h3 id=introduction-6><span class=secno>11.1</span> Introduction<a href=#introduction-6 class=self-link></a></h3>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/introduction.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/introduction.zh.html?filename=introduction.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fintroduction.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>This specification introduces two related mechanisms, similar to HTTP session cookies, for
+  storing name-value pairs on the client side. <a href=references.html#refsCOOKIES>[COOKIES]</a></p>
+
+  <p>The first is designed for scenarios where the user is carrying out a single transaction, but
+  could be carrying out multiple transactions in different windows at the same time.</p>
+
+  <p>Cookies don't really handle this case well. For example, a user could be buying plane tickets
+  in two different windows, using the same site. If the site used cookies to keep track of which
+  ticket the user was buying, then as the user clicked from page to page in both windows, the ticket
+  currently being purchased would "leak" from one window to the other, potentially causing the user
+  to buy two tickets for the same flight without really noticing.</p>
+
+  <p>To address this, this specification introduces the <code id=introduction-6:dom-sessionstorage><a href=#dom-sessionstorage>sessionStorage</a></code> IDL attribute. Sites can add data to the session
+  storage, and it will be accessible to any page from the same site opened in that window.</p> 
+
+  <div class=example>
+
+   <p>For example, a page could have a checkbox that the user ticks to
+   indicate that they want insurance:</p>
+
+   <pre><code class=html>&lt;label>
+ &lt;input type="checkbox" onchange="sessionStorage.insurance = checked ? 'true' : ''">
+  I want insurance on this trip.
+&lt;/label></code></pre>
+
+   <p>A later page could then check, from script, whether the user had checked the checkbox or
+   not:</p>
+
+   <pre><code class=js>if (sessionStorage.insurance) { ... }</code></pre>
+
+   <p>If the user had multiple windows opened on the site, each one would have its own individual
+   copy of the session storage object.</p>
+
+  </div>
+
+  
+
+  <p>The second storage mechanism is designed for storage that spans multiple windows, and lasts
+  beyond the current session. In particular, Web applications might wish to store megabytes of user
+  data, such as entire user-authored documents or a user's mailbox, on the client side for
+  performance reasons.</p>
+
+  <p>Again, cookies do not handle this case well, because they are transmitted with every
+  request.</p>
+
+  <p>The <code id=introduction-6:dom-localstorage><a href=#dom-localstorage>localStorage</a></code> IDL attribute is used to access a page's
+  local storage area.</p>
+
+  <div class=example>
+
+   <p>The site at example.com can display a count of how many times the user has loaded its page by
+   putting the following at the bottom of its page:</p>
+
+   <pre><code class=html>&lt;p>
+  You have viewed this page
+  &lt;span id="count">an untold number of&lt;/span>
+  time(s).
+&lt;/p>
+&lt;script>
+  if (!localStorage.pageLoadCount)
+    localStorage.pageLoadCount = 0;
+  localStorage.pageLoadCount = parseInt(localStorage.pageLoadCount) + 1;
+  document.getElementById('count').textContent = localStorage.pageLoadCount;
+&lt;/script></code></pre>
+
+  </div>
+
+  <p>Each site has its own separate storage area.</p>
+
+
+
+
+  <h3 id=storage><span class=secno>11.2</span> API<a href=#storage class=self-link></a></h3><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage title="The Storage interface of the Web Storage API provides access to a particular domain's session or local storage. It allows, for example, the addition, modification, or deletion of stored data items.">Storage</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span><hr><span class=caniuse><span><a href="https://caniuse.com/#feat=namevalue-storage" title="Web Storage - name/value pairs">caniuse.com table</a></span></span></div></div></div>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Wed Feb 28 2018 16:23:38 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/index.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/the-api/index.zh.html></div>
+
+  <h4 id=the-storage-interface><span class=secno>11.2.1</span> The <code id=the-storage-interface:storage-2><a href=#storage-2>Storage</a></code> interface<a href=#the-storage-interface class=self-link></a></h4>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/the-storage-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/the-api/the-storage-interface.zh.html?filename=the-storage-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fthe-api%2Fthe-storage-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <pre><code class=idl>[Exposed=Window]
+interface <dfn id=storage-2>Storage</dfn> {
+  readonly attribute unsigned long <a href=#dom-storage-length id=the-storage-interface:dom-storage-length>length</a>;
+  DOMString? <a href=#dom-storage-key id=the-storage-interface:dom-storage-key>key</a>(unsigned long index);
+  getter DOMString? <a href=#dom-storage-getitem id=the-storage-interface:dom-storage-getitem>getItem</a>(DOMString key);
+  setter void <a href=#dom-storage-setitem id=the-storage-interface:dom-storage-setitem>setItem</a>(DOMString key, DOMString value);
+  deleter void <a href=#dom-storage-removeitem id=the-storage-interface:dom-storage-removeitem>removeItem</a>(DOMString key);
+  void <a href=#dom-storage-clear id=the-storage-interface:dom-storage-clear>clear</a>();
+};</code></pre>
+
+  
+
+  <p>Each <code id=the-storage-interface:storage-2-2><a href=#storage-2>Storage</a></code> object provides access to a list of key/value pairs, which are
+  sometimes called items. Keys are strings. Any string (including the empty string) is a valid key.
+  Values are similarly strings.</p>
+
+  <p>Each <code id=the-storage-interface:storage-2-3><a href=#storage-2>Storage</a></code> object is associated with a list of key/value pairs when it is
+  created, as defined in the sections on the <code id=the-storage-interface:dom-sessionstorage><a href=#dom-sessionstorage>sessionStorage</a></code>
+  and <code id=the-storage-interface:dom-localstorage><a href=#dom-localstorage>localStorage</a></code> attributes. Multiple separate objects
+  implementing the <code id=the-storage-interface:storage-2-4><a href=#storage-2>Storage</a></code> interface can all be associated with the same list of
+  key/value pairs simultaneously.</p>
+
+  <dl class=domintro><dt><var>storage</var> . <code id=dom-storage-length>length</code><div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/length title="The length read-only property of the Storage interface returns the number of data items stored in a given Storage object.">Storage/length</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dd>
+    <p>Returns the number of key/value pairs currently present in the list associated with the
+    object.</p>
+   <dd>
+
+   <dt><var>storage</var> . <code id=dom-storage-key>key</code> ( <var>n</var> )<div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/key title="The key() method of the Storage interface, when passed a number n, returns the name of the nth key in a given Storage object. The order of keys is user-agent defined, so you should not rely on it.">Storage/key</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dd>
+    <p>Returns the name of the <var>n</var>th key in the list, or null if <var>n</var> is greater
+    than or equal to the number of key/value pairs in the object.</p>
+   <dd>
+
+   <dt><var>value</var> = <var>storage</var> . <code id=dom-storage-getitem>getItem</code> ( <var>key</var> )<div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem title="The getItem() method of the Storage interface, when passed a key name, will return that key's value, or null if the key does not exist, in the given Storage object.">Storage/getItem</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dt><var>value</var> = <var>storage</var>[<var>key</var>]<dd>
+    <p>Returns the current value associated with the given <var>key</var>, or null if the given
+    <var>key</var> does not exist in the list associated with the object.</p>
+   <dd>
+
+   <dt><var>storage</var> . <code id=dom-storage-setitem>setItem</code> ( <var>key</var>, <var>value</var> )<div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem title="The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.">Storage/setItem</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dt><var>storage</var>[<var>key</var>] = <var>value</var><dd>
+    <p>Sets the value of the pair identified by <var>key</var> to <var>value</var>, creating a new
+    key/value pair if none existed for <var>key</var> previously.</p>
+
+    <p>Throws a <a id=the-storage-interface:quotaexceedederror href=https://heycam.github.io/webidl/#quotaexceedederror data-x-internal=quotaexceedederror>"<code>QuotaExceededError</code>"</a> <code id=the-storage-interface:domexception><a data-x-internal=domexception href=https://heycam.github.io/webidl/#dfn-DOMException>DOMException</a></code> exception
+    if the new value couldn't be set. (Setting could fail if, e.g., the user has disabled storage
+    for the site, or if the quota has been exceeded.)</p>
+
+   <dt><var>storage</var> . <code id=dom-storage-removeitem>removeItem</code> ( <var>key</var> )<div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem title="The removeItem() method of the Storage interface, when passed a key name, will remove that key from the given Storage object if it exists. The Storage interface of the Web Storage API provides access to a particular domain's session or local storage.">Storage/removeItem</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dt><code id=the-storage-interface:delete><a data-x-internal=delete href=https://tc39.github.io/ecma262/#sec-delete-operator>delete</a></code> <var>storage</var>[<var>key</var>]<dd>
+    <p>Removes the key/value pair with the given <var>key</var> from the list associated with the
+    object, if a key/value pair with the given <var>key</var> exists.</p>
+   <dt><var>storage</var> . <code id=dom-storage-clear>clear</code>()<div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Storage/clear title="The clear() method of the Storage interface clears all keys stored in a given Storage object.">Storage/clear</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>6+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><dd>
+    <p>Empties the list associated with the object of all key/value pairs, if there are any.</p>
+   </dl>
+
+  
+
+  <p class=note>When the <code id=the-storage-interface:dom-storage-setitem-2><a href=#dom-storage-setitem>setItem()</a></code>, <code id=the-storage-interface:dom-storage-removeitem-2><a href=#dom-storage-removeitem>removeItem()</a></code>, and <code id=the-storage-interface:dom-storage-clear-2><a href=#dom-storage-clear>clear()</a></code> methods are invoked, events are fired on the
+  <code id=the-storage-interface:window><a href=window-object.html#window>Window</a></code> objects of other <code id=the-storage-interface:document><a href=dom.html#document>Document</a></code>s that can access the newly stored or
+  removed data, as defined in the sections on the <code id=the-storage-interface:dom-sessionstorage-2><a href=#dom-sessionstorage>sessionStorage</a></code> and <code id=the-storage-interface:dom-localstorage-2><a href=#dom-localstorage>localStorage</a></code> attributes.</p> 
+
+  <p class=note>This specification does not require that the above methods wait until the data has
+  been physically written to disk. Only consistency in what different scripts accessing the same
+  underlying list of key/value pairs see is required.</p>
+
+
+  <h4 id=the-sessionstorage-attribute><span class=secno>11.2.2</span> The <code id=the-sessionstorage-attribute:dom-sessionstorage><a href=#dom-sessionstorage>sessionStorage</a></code> attribute<a href=#the-sessionstorage-attribute class=self-link></a></h4>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/the-sessionstorage-attribute.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/the-api/the-sessionstorage-attribute.zh.html></div>
+
+  <pre><code class=idl>interface mixin <dfn id=windowsessionstorage>WindowSessionStorage</dfn> {
+  readonly attribute <a href=#storage-2 id=the-sessionstorage-attribute:storage-2>Storage</a> <a href=#dom-sessionstorage id=the-sessionstorage-attribute:dom-sessionstorage-2>sessionStorage</a>;
+};
+<a id=the-sessionstorage-attribute:window href=window-object.html#window>Window</a> includes <a href=#windowsessionstorage id=the-sessionstorage-attribute:windowsessionstorage>WindowSessionStorage</a>;</code></pre>
+
+  <div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage title="The sessionStorage property accesses a session Storage object for the current origin. sessionStorage is similar to localStorage; the difference is that while data in localStorage doesn't expire, data in sessionStorage is cleared when the page session ends.">Window/sessionStorage</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>2+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>5+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>4+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><p>The <dfn id=dom-sessionstorage><code>sessionStorage</code></dfn> attribute represents the
+  set of storage areas specific to the current <a id=the-sessionstorage-attribute:top-level-browsing-context href=browsers.html#top-level-browsing-context>top-level browsing context</a>.</p>
+
+  <dl class=domintro><dt><var>window</var> . <code id=dom-sessionstorage-2><a href=#dom-sessionstorage>sessionStorage</a></code><dd>
+     <p>Returns the <code id=the-sessionstorage-attribute:storage-2-2><a href=#storage-2>Storage</a></code> object associated with that origin's session storage
+     area.</p>
+   </dl>
+
+  <p>Each <a id=the-sessionstorage-attribute:top-level-browsing-context-2 href=browsers.html#top-level-browsing-context>top-level browsing context</a> has a unique set of session storage areas, one for
+  each <a id=the-sessionstorage-attribute:concept-origin href=origin.html#concept-origin>origin</a>.</p>
+
+  <p>User agents should not expire data from a browsing context's session storage areas, but may do
+  so when the user requests that such data be deleted, or when the UA detects that it has limited
+  storage space, or for security reasons. User agents should always avoid deleting data while a
+  script that could access that data is running. When a top-level browsing context is destroyed (and
+  therefore permanently inaccessible to the user) the data stored in its session storage areas can
+  be discarded with it, as the API described in this specification provides no way for that data to
+  ever be subsequently retrieved.</p>
+
+  
+
+  <p id=sessionStorageEvent>When the <code id=the-sessionstorage-attribute:dom-storage-setitem><a href=#dom-storage-setitem>setItem()</a></code>, <code id=the-sessionstorage-attribute:dom-storage-removeitem><a href=#dom-storage-removeitem>removeItem()</a></code>, and <code id=the-sessionstorage-attribute:dom-storage-clear><a href=#dom-storage-clear>clear()</a></code> methods are called on a <code id=the-sessionstorage-attribute:storage-2-3><a href=#storage-2>Storage</a></code> object <var>x</var> that is associated with a session storage area, if the methods did not throw an
+  exception or "do nothing" as defined above, then for every <code id=the-sessionstorage-attribute:document><a href=dom.html#document>Document</a></code> object whose
+  <code id=the-sessionstorage-attribute:window-2><a href=window-object.html#window>Window</a></code> object's <code id=the-sessionstorage-attribute:dom-sessionstorage-3><a href=#dom-sessionstorage>sessionStorage</a></code> attribute's
+  <code id=the-sessionstorage-attribute:storage-2-4><a href=#storage-2>Storage</a></code> object is associated with the same storage area, other than <var>x</var>,
+  user agents <a href=#send-a-storage-notification id=the-sessionstorage-attribute:send-a-storage-notification>send a storage notification</a>.</p>
+
+
+  <h4 id=the-localstorage-attribute><span class=secno>11.2.3</span> The <code id=the-localstorage-attribute:dom-localstorage><a href=#dom-localstorage>localStorage</a></code> attribute<a href=#the-localstorage-attribute class=self-link></a></h4>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/the-localstorage-attribute.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/the-api/the-localstorage-attribute.zh.html></div>
+
+  <pre><code class=idl>interface mixin <dfn id=windowlocalstorage>WindowLocalStorage</dfn> {
+  readonly attribute <a href=#storage-2 id=the-localstorage-attribute:storage-2>Storage</a> <a href=#dom-localstorage id=the-localstorage-attribute:dom-localstorage-2>localStorage</a>;
+};
+<a id=the-localstorage-attribute:window href=window-object.html#window>Window</a> includes <a href=#windowlocalstorage id=the-localstorage-attribute:windowlocalstorage>WindowLocalStorage</a>;</code></pre>
+
+  <div class="mdn-anno wrapped before"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage title="The read-only localStorage property allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions.">Window/localStorage</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>3.5+</span></span><span class="safari yes"><span>Safari</span><span>4+</span></span><span class="chrome yes"><span>Chrome</span><span>4+</span></span><hr><span class="opera yes"><span>Opera</span><span>10.5+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>12+</span></span><span class="ie yes"><span>Internet Explorer</span><span>8+</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>4+</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>3.2+</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>18+</span></span><span class="webview_android yes"><span>WebView Android</span><span>37+</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>1.0+</span></span><span class="opera_android yes"><span>Opera Android</span><span>11+</span></span></div></div></div><p>The <dfn id=dom-localstorage><code>localStorage</code></dfn> object provides a
+  <code id=the-localstorage-attribute:storage-2-2><a href=#storage-2>Storage</a></code> object for an <a id=the-localstorage-attribute:concept-origin href=origin.html#concept-origin>origin</a>.
+  
+  </p>
+
+  <dl class=domintro><dt><var>window</var> . <code id=dom-localstorage-2><a href=#dom-localstorage>localStorage</a></code><dd>
+     <p>Returns the <code id=the-localstorage-attribute:storage-2-3><a href=#storage-2>Storage</a></code> object associated with that origin's local storage
+     area.</p>
+     <p>Throws a <a id=the-localstorage-attribute:securityerror href=https://heycam.github.io/webidl/#securityerror data-x-internal=securityerror>"<code>SecurityError</code>"</a> <code id=the-localstorage-attribute:domexception><a data-x-internal=domexception href=https://heycam.github.io/webidl/#dfn-DOMException>DOMException</a></code> if the
+     <code id=the-localstorage-attribute:document><a href=dom.html#document>Document</a></code>'s <a id=the-localstorage-attribute:concept-origin-2 href=origin.html#concept-origin>origin</a> is an <a href=origin.html#concept-origin-opaque id=the-localstorage-attribute:concept-origin-opaque>opaque
+     origin</a> or if the request violates a policy decision (e.g. if the user agent is
+     configured to not allow the page to persist data).</p>
+   </dl>
+
+  
+
+  <p id=localStorageEvent>When the <code id=the-localstorage-attribute:dom-storage-setitem><a href=#dom-storage-setitem>setItem()</a></code>, <code id=the-localstorage-attribute:dom-storage-removeitem><a href=#dom-storage-removeitem>removeItem()</a></code>, and <code id=the-localstorage-attribute:dom-storage-clear><a href=#dom-storage-clear>clear()</a></code> methods are called on a <code id=the-localstorage-attribute:storage-2-4><a href=#storage-2>Storage</a></code> object <var>x</var> that is associated with a local storage area, if the methods did not throw an
+  exception or "do nothing" as defined above, then for every <code id=the-localstorage-attribute:document-2><a href=dom.html#document>Document</a></code> object whose
+  <code id=the-localstorage-attribute:window-2><a href=window-object.html#window>Window</a></code> object's <code id=the-localstorage-attribute:dom-localstorage-3><a href=#dom-localstorage>localStorage</a></code> attribute's
+  <code id=the-localstorage-attribute:storage-2-5><a href=#storage-2>Storage</a></code> object is associated with the same storage area, other than <var>x</var>,
+  user agents <a href=#send-a-storage-notification id=the-localstorage-attribute:send-a-storage-notification>send a storage notification</a>.
+
+  <p class=warning>The <code id=the-localstorage-attribute:dom-localstorage-4><a href=#dom-localstorage>localStorage</a></code> attribute provides
+  access to shared state. This specification does not define the interaction with other browsing
+  contexts in a multiprocess user agent, and authors are encouraged to assume that there is no
+  locking mechanism. A site could, for instance, try to read the value of a key, increment its
+  value, then write it back out, using the new value as a unique identifier for the session; if the
+  site does this twice in two different browser windows at the same time, it might end up using the
+  same "unique" identifier for both sessions, with potentially disastrous effects.</p>
+
+
+  <h4 id=the-storage-event><span class=secno>11.2.4</span> The <code id=the-storage-event:event-storage><a href=indices.html#event-storage>storage</a></code> event<a href=#the-storage-event class=self-link></a></h4>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/the-storage-event/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/the-api/the-storage-event/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fthe-api%2Fthe-storage-event%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p><span id=send-a-storage-notification>The <code id=the-storage-event:event-storage-2><a href=indices.html#event-storage>storage</a></code> event is fired on a <code id=the-storage-event:document><a href=dom.html#document>Document</a></code>'s
+  <code id=the-storage-event:window><a href=window-object.html#window>Window</a></code> object when a storage area changes</span>, as described in the previous two
+  sections (<a href=#sessionStorageEvent>for session storage</a>, <a href=#localStorageEvent>for
+  local storage</a>).</p>
+
+  
+
+
+  <h5 id=the-storageevent-interface><span class=secno>11.2.4.1</span> The <code id=the-storageevent-interface:storageevent><a href=#storageevent>StorageEvent</a></code> interface<a href=#the-storageevent-interface class=self-link></a></h5><div class="mdn-anno wrapped"><button onclick=toggleStatus(this) class=mdn-anno-btn><b title="Support in all current engines." class=all-engines-flag>✔</b><span>MDN</span></button><div class=feature><p><a href=https://developer.mozilla.org/en-US/docs/Web/API/StorageEvent title="A StorageEvent is sent to a window when a storage area it has access to is changed within the context of another document.">StorageEvent</a><p class=all-engines-text>Support in all current engines.<div class=support><span class="firefox yes"><span>Firefox</span><span>Yes</span></span><span class="safari yes"><span>Safari</span><span>Yes</span></span><span class="chrome yes"><span>Chrome</span><span>1+</span></span><hr><span class="opera yes"><span>Opera</span><span>Yes</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span><hr><span class="edge yes"><span>Edge (Legacy)</span><span>18</span></span><span class="ie unknown"><span>Internet Explorer</span><span>?</span></span><hr><span class="firefox_android yes"><span>Firefox Android</span><span>Yes</span></span><span class="safari_ios yes"><span>Safari iOS</span><span>Yes</span></span><span class="chrome_android yes"><span>Chrome Android</span><span>Yes</span></span><span class="webview_android yes"><span>WebView Android</span><span>Yes</span></span><span class="samsunginternet_android yes"><span>Samsung Internet</span><span>Yes</span></span><span class="opera_android yes"><span>Opera Android</span><span>Yes</span></span></div></div></div>
+<div data-en-date="Sat Aug 11 2018 08:00:56 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/the-api/the-storage-event/the-storageevent-interface.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/the-api/the-storage-event/the-storageevent-interface.zh.html?filename=the-storageevent-interface.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fthe-api%2Fthe-storage-event%2Fthe-storageevent-interface.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <pre><code class=idl>[Exposed=Window,
+ Constructor(DOMString type, optional <a href=#storageeventinit id=the-storageevent-interface:storageeventinit>StorageEventInit</a> eventInitDict)]
+interface <dfn id=storageevent>StorageEvent</dfn> : <a id=the-storageevent-interface:event href=https://dom.spec.whatwg.org/#interface-event data-x-internal=event>Event</a> {
+  readonly attribute DOMString? <a href=#dom-storageevent-key id=the-storageevent-interface:dom-storageevent-key>key</a>;
+  readonly attribute DOMString? <a href=#dom-storageevent-oldvalue id=the-storageevent-interface:dom-storageevent-oldvalue>oldValue</a>;
+  readonly attribute DOMString? <a href=#dom-storageevent-newvalue id=the-storageevent-interface:dom-storageevent-newvalue>newValue</a>;
+  readonly attribute USVString <a href=#dom-storageevent-url id=the-storageevent-interface:dom-storageevent-url>url</a>;
+  readonly attribute <a href=#storage-2 id=the-storageevent-interface:storage-2>Storage</a>? <a href=#dom-storageevent-storagearea id=the-storageevent-interface:dom-storageevent-storagearea>storageArea</a>;
+};
+
+dictionary <dfn id=storageeventinit>StorageEventInit</dfn> : <a id=the-storageevent-interface:eventinit href=https://dom.spec.whatwg.org/#dictdef-eventinit data-x-internal=eventinit>EventInit</a> {
+  DOMString? key = null;
+  DOMString? oldValue = null;
+  DOMString? newValue = null;
+  USVString url = "";
+  <a href=#storage-2 id=the-storageevent-interface:storage-2-2>Storage</a>? storageArea = null;
+};</code></pre>
+
+  <dl class=domintro><dt><var>event</var> . <code id=dom-storageevent-key>key</code><dd>
+     <p>Returns the key of the storage item being changed.</p>
+   <dt><var>event</var> . <code id=dom-storageevent-oldvalue>oldValue</code><dd>
+     <p>Returns the old value of the key of the storage item whose value is being changed.</p>
+   <dt><var>event</var> . <code id=dom-storageevent-newvalue>newValue</code><dd>
+     <p>Returns the new value of the key of the storage item whose value is being changed.</p>
+   <dt><var>event</var> . <code id=dom-storageevent-url>url</code><dd>
+     <p>Returns the <a id=the-storageevent-interface:url href=https://url.spec.whatwg.org/#concept-url data-x-internal=url>URL</a> of the document whose storage item changed.</p>
+   <dt><var>event</var> . <code id=dom-storageevent-storagearea>storageArea</code><dd>
+     <p>Returns the <code id=the-storageevent-interface:storage-2-3><a href=#storage-2>Storage</a></code> object that was affected.</p>
+   </dl>
+
+  
+
+
+  <h3 id=磁盘空间><span class=secno>11.3</span> 磁盘空间<a href=#磁盘空间 class=self-link></a></h3>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Thu Sep 03 2020 09:49:03 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/disk-space.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/disk-space.zh.html></div>
+
+  <p>用户代理应该限制可存储区域的空间大小，否则恶意的作者可能会利用这一特性耗尽用户的可用磁盘空间。</p>
+
+  <p>用户代理应该防止站点在它们源下的附属站点进行存储，例如应防范通过在
+  a1.example.com、a2.example.com、a3.example.com 等站点进行存储，
+  来绕过主站 example.com 存储限制的行为</p>
+
+  <p>当到达配额时用户代理可以提示用户，使用户可以授予一个站点更多空间。
+  例如，这可以允许站点在用户电脑中存储很多用户创建的文档。</p>
+
+  <p>用户代理应该允许用户看到每个域名使用的空间大小。</p>
+
+  
+
+  <p>通常建议每个 <a href=origin.html#concept-origin id=磁盘空间:concept-origin>源</a> 的存储上限是 5M。
+  欢迎实现者提供反馈意见，用于将来更新这个建议。</p>
+
+  <p>为了保证可预测性，配额应该基于未压缩的数据存储大小来进行计算。</p>
+  
+
+
+  <h3 id=隐私><span class=secno>11.4</span> 隐私<a href=#隐私 class=self-link></a></h3>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Wed Feb 28 2018 16:23:38 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/privacy/index.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/privacy/index.zh.html></div>
+
+  <h4 id=user-tracking><span class=secno>11.4.1</span> User tracking<a href=#user-tracking class=self-link></a></h4>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/privacy/user-tracking.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/privacy/user-tracking.zh.html?filename=user-tracking.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fprivacy%2Fuser-tracking.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>A third-party advertiser (or any entity capable of getting content distributed to multiple
+  sites) could use a unique identifier stored in its local storage area to track a user across
+  multiple sessions, building a profile of the user's interests to allow for highly targeted
+  advertising. In conjunction with a site that is aware of the user's real identity (for example an
+  e-commerce site that requires authenticated credentials), this could allow oppressive groups to
+  target individuals with greater accuracy than in a world with purely anonymous Web usage.</p>
+
+  <p>There are a number of techniques that can be used to mitigate the risk of user tracking:</p>
+
+  <dl><dt>Blocking third-party storage<dd>
+
+    <p>User agents may restrict access to the <code id=user-tracking:dom-localstorage><a href=#dom-localstorage>localStorage</a></code>
+    objects to scripts originating at the domain of the <a id=user-tracking:active-document href=browsers.html#active-document>active document</a> of the <a id=user-tracking:top-level-browsing-context href=browsers.html#top-level-browsing-context>top-level browsing
+    context</a>, for instance denying access to the API for pages from other domains running in
+    <code id=user-tracking:the-iframe-element><a href=iframe-embed-object.html#the-iframe-element>iframe</a></code>s.</p>
+
+   <dt>Expiring stored data<dd>
+
+    <p>User agents may, possibly in a manner configured by the user, automatically delete stored
+    data after a period of time.</p>
+
+    <p>For example, a user agent could be configured to treat third-party local storage areas as
+    session-only storage, deleting the data once the user had closed all the <a href=browsers.html#browsing-context id=user-tracking:browsing-context>browsing contexts</a> that could access it.</p>
+
+    <p>This can restrict the ability of a site to track a user, as the site would then only be able
+    to track the user across multiple sessions when they authenticate with the site itself (e.g. by
+    making a purchase or logging in to a service).</p>
+
+    <p>However, this also reduces the usefulness of the API as a long-term storage mechanism. It can
+    also put the user's data at risk, if the user does not fully understand the implications of data
+    expiration.</p>
+
+    
+
+   <dt>Treating persistent storage as cookies<dd>
+
+    <p>If users attempt to protect their privacy by clearing cookies without also clearing data
+    stored in the local storage area, sites can defeat those attempts by using the two features as
+    redundant backup for each other. User agents should present the interfaces for clearing these in
+    a way that helps users to understand this possibility and enables them to delete data in all
+    persistent storage features simultaneously. <a href=references.html#refsCOOKIES>[COOKIES]</a></p>
+
+   <dt>Site-specific safelisting of access to local storage areas<dd>
+
+    <p>User agents may allow sites to access session storage areas in
+    an unrestricted manner, but require the user to authorize access
+    to local storage areas.</p>
+
+   <dt>Origin-tracking of stored data<dd>
+
+    <p>User agents may record the <a href=origin.html#concept-origin id=user-tracking:concept-origin>origins</a> of sites that contained
+    content from third-party origins that caused data to be stored.</p>
+
+    <p>If this information is then used to present the view of data currently in persistent storage,
+    it would allow the user to make informed decisions about which parts of the persistent storage
+    to prune. Combined with a blocklist ("delete this data and prevent this domain from ever storing
+    data again"), the user can restrict the use of persistent storage to sites that they trust.</p>
+
+   <dt>Shared blocklists<dd>
+
+    <p>User agents may allow users to share their persistent storage domain blocklists.</p>
+
+    <p>This would allow communities to act together to protect their privacy.</p>
+
+   </dl>
+
+  <p>While these suggestions prevent trivial use of this API for user tracking, they do not block it
+  altogether. Within a single domain, a site can continue to track the user during a session, and
+  can then pass all this information to the third party along with any identifying information
+  (names, credit card numbers, addresses) obtained by the site. If a third party cooperates with
+  multiple sites to obtain such information, a profile can still be created.</p>
+
+  <p>However, user tracking is to some extent possible even with no cooperation from the user agent
+  whatsoever, for instance by using session identifiers in URLs, a technique already commonly used
+  for innocuous purposes but easily repurposed for user tracking (even retroactively). This
+  information can then be shared with other sites, using visitors' IP addresses and other
+  user-specific data (e.g. user-agent headers and configuration settings) to combine separate
+  sessions into coherent user profiles.</p>
+
+  
+
+
+
+  <h3 id=security-storage><span class=secno>11.5</span> 安全<a href=#security-storage class=self-link></a></h3>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Wed Feb 28 2018 16:23:38 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/security/index.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/security/index.zh.html></div>
+
+  <h4 id=dns-欺骗攻击><span class=secno>11.5.1</span> DNS 欺骗攻击<a href=#dns-欺骗攻击 class=self-link></a></h4>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="Wed Feb 28 2018 16:23:38 GMT+0000 (UTC)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/security/dns-spoofing-attacks.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/web-storage/security/dns-spoofing-attacks.zh.html></div>
+
+  <p>由于可能受到 DNS 欺骗攻击，人们不能保证声称在某个域中的主机确实来自该域。
+  为缓解这种情况网页可以使用 TLS。
+  使用 TLS 的页面可以确保只有用户，代表用户的软件以及使用 TLS 的其他页面
+  （具有标识为来自同一个域的证书）可以访问其存储区域。</p>
+
+
+  <h4 id=cross-directory-attacks><span class=secno>11.5.2</span> Cross-directory attacks<a href=#cross-directory-attacks class=self-link></a></h4>
+<div data-en-date="Sun Feb 25 2018 16:34:32 GMT+0000 (UTC)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-storage/security/cross-directory-attacks.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-storage/security/cross-directory-attacks.zh.html?filename=cross-directory-attacks.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-storage%2Fsecurity%2Fcross-directory-attacks.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>Different authors sharing one host name, for example users hosting content on the now defunct
+  <code>geocities.com</code>, all share one local storage object. There is no feature to
+  restrict the access by pathname. Authors on shared hosts are therefore urged to avoid using these
+  features, as it would be trivial for other authors to read the data and overwrite it.</p>
+
+  <p class=note>Even if a path-restriction feature was made available, the usual DOM scripting
+  security model would make it trivial to bypass this protection and access the data from any
+  path.</p>
+
+
+  
+
+
+
+  <nav><a href=workers.html>← 10 Web workers</a> — <a href=./>Table of Contents</a> — <a href=syntax.html>12 HTML 语法 →</a></nav>
